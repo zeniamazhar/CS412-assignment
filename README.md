@@ -7,16 +7,16 @@ Firstly, the MNIST dataset was imported and loaded using the TensorFlow Keras AP
 ![](https://github.com/zeniamazhar/CS412-assignment/blob/main/ValidationClassDistribution.png)
 
 Figure 1: Bar chart showing the number of the samples against the digits that were handwritten in the samples in the validation set. The class distribution for each digit was as follows: {0: 1175, 1: 1322, 2: 1174, 3: 1219, 4: 1176, 5: 1104, 6: 1177, 7: 1299, 8: 1160, 9: 1194}
-<br>
+<br><br>
 ![](https://github.com/zeniamazhar/CS412-assignment/blob/main/TestClassDistribution.png)
 
 Figure 2: Bar chart showing the number of the samples against the digits that were handwritten in the samples in the test set. The class distribution for each digit was as follows: {0: 980, 1: 1135, 2: 1032, 3: 1010, 4: 982, 5: 892, 6: 958, 7: 1028, 8: 974, 9: 1009}
-<br>
+<br><br>
 ![](https://github.com/zeniamazhar/CS412-assignment/blob/main/TrainingClassDistribution.png)
 
 Figure 3: Bar chart showing the number of the samples against the digits that were handwritten in the samples in the training set. The class distribution for each digit was as follows: {0: 4748, 1: 5420, 2: 4784, 3: 4912, 4: 4666, 5: 4317, 6: 4741, 7: 4966, 8: 4691, 9: 4755}
 
-<br><br>
+<br>
 
 It can be seen that the class distributions are fairly uniform for each of the digits in each of the datasets. Hence, it is safe to continue with these splits and there isn’t any bias that would be caused by uneven distribution of the numbers of samples for particular digits in any of the datasets. 
 
