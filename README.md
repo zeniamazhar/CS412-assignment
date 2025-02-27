@@ -1,4 +1,4 @@
-
+#Making k-NN Model and Decision Tree Classifier using the MNIST dataset <br>
 Link to Jupyter notebook (on google colab): https://colab.research.google.com/drive/14u99p-dFeXcXiXCuOewLhYfx3vMsEdLP?usp=sharing
 <br> <br>
 Loading MNIST, data splitting and class distributions
