@@ -1,5 +1,6 @@
 
 Link to Jupyter notebook (on google colab): https://colab.research.google.com/drive/14u99p-dFeXcXiXCuOewLhYfx3vMsEdLP?usp=sharing
+<br> <br>
 Loading MNIST, data splitting and class distributions
 Firstly, the MNIST dataset was imported and loaded using the TensorFlow Keras API. Then, the data was flattened to make them 1-dimensional, so that they can be used to make the k-NN model and the decision tree classifier. 80% of the data was used to train the models while 20% was used in the validation set. The test set was taken as is, but it was flattened so it can be used to see how well the models perform later on. The class distribution was computed and plotted in subplots for each of the datasets, as shown in the figures below:
 
