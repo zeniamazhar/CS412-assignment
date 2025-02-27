@@ -3,12 +3,20 @@ Link to Jupyter notebook (on google colab): https://colab.research.google.com/dr
 <br> <br>
 Loading MNIST, data splitting and class distributions
 Firstly, the MNIST dataset was imported and loaded using the TensorFlow Keras API. Then, the data was flattened to make them 1-dimensional, so that they can be used to make the k-NN model and the decision tree classifier. 80% of the data was used to train the models while 20% was used in the validation set. The test set was taken as is, but it was flattened so it can be used to see how well the models perform later on. The class distribution was computed and plotted in subplots for each of the datasets, as shown in the figures below:
+<br>
+![](https://github.com/zeniamazhar/CS412-assignment/blob/main/ValidationClassDistribution.png)
 
 Figure 1: Bar chart showing the number of the samples against the digits that were handwritten in the samples in the validation set. The class distribution for each digit was as follows: {0: 1175, 1: 1322, 2: 1174, 3: 1219, 4: 1176, 5: 1104, 6: 1177, 7: 1299, 8: 1160, 9: 1194}
+<br>
+![](https://github.com/zeniamazhar/CS412-assignment/blob/main/TestClassDistribution.png)
 
 Figure 2: Bar chart showing the number of the samples against the digits that were handwritten in the samples in the test set. The class distribution for each digit was as follows: {0: 980, 1: 1135, 2: 1032, 3: 1010, 4: 982, 5: 892, 6: 958, 7: 1028, 8: 974, 9: 1009}
+<br>
+![](https://github.com/zeniamazhar/CS412-assignment/blob/main/TrainingClassDistribution.png)
 
 Figure 3: Bar chart showing the number of the samples against the digits that were handwritten in the samples in the training set. The class distribution for each digit was as follows: {0: 4748, 1: 5420, 2: 4784, 3: 4912, 4: 4666, 5: 4317, 6: 4741, 7: 4966, 8: 4691, 9: 4755}
+
+<br>
 
 It can be seen that the class distributions are fairly uniform for each of the digits in each of the datasets. Hence, it is safe to continue with these splits and there isn’t any bias that would be caused by uneven distribution of the numbers of samples for particular digits in any of the datasets. 
 
@@ -29,8 +37,13 @@ Table 1: A table summarizing the basic statistical values computed for all three
 
 Subsequently, sample images were shown for each digit by making subplots (Figure 4). The first occurrence of each digit in the training set was used for this purpose, while showing the digits in 2 rows, with 5 digits in each row (See Figure 4).
 
+<br>
+
+![](https://github.com/zeniamazhar/CS412-assignment/blob/main/Samples.png)
 
 Figure 4: Subplots showing sample images of each digit (1st occurrence of the digit in the training set). 
+
+<br>
 
 
 This was followed by preprocessing the data by first finding the minimum and maximum pixel values of the training data, which were found to be 0 and 255, respectively. All the x-values in the three datasets were then normalized by being divided by 255 to normalize the data points so they can be in the 0-1 range.
@@ -53,6 +66,9 @@ Table 2: A table showing the number of neighbors used to initialize the k-NN mod
 
 Moreover, a plot was made to show the trend in the validation accuracy against the number of neighbors used to initialize the k-NN model (See Figure 5). It can be seen that as the number of neighbors increases, the validation accuracy goes down. This isn’t seen commonly, but this may be due to the same reason the best performance was seen when the k-NN model had k=1: The training set and the validation set may have been very similar, and the boundaries between the different classes may be very clear. 
 
+<br>
+
+![](https://github.com/zeniamazhar/CS412-assignment/blob/main/ValidationAccuracykNN.png)
 
 Figure 5: Line graph showing a visual representation of the decrease in the accuracy of the predictions of the k-NN models against the number of neighbors (k) used to initialize the models.
 
@@ -61,8 +77,13 @@ The final k-NN classifier was made with k=1 as this was the best value found for
 
 A confusion matrix was generated for the final k-NN model (Figure 6). The most frequently misclassified numbers seem to be the following (in order of highest to lower number of misclassifications): (1) 4 misclassified as 9 (25 occurrences), (2) 3 misclassified as 5 (21 occurrences), (3) 8 misclassified as 5 (18 occurrences). Intuitively, these misclassifications make sense - 4 can indeed resemble 9 if written in a certain manner, as they are only different by a few pixels at the top. Similarly, 5 can be written in a way where it resembles a 3 but without the pixels that make up the top line of the number 3. 5 and 8 may be confused with each other, given that sometimes 8 is handwritten in a slanted manner where the top half of the digit looks like a continuous line rather than a circle, making it look like the number 5. Moreover, the fact that only one nearest neighbor is being used to predict the labels, the digits that are written in a more “unique” manner would likely be misclassified. Additionally, the model’s predictions are very sensitive to noise as well (due to k=1, and the classifier being a k-NN model), making it so even the digits that are “clearly” written would be misclassified.
 
+<br>
+
+![](https://github.com/zeniamazhar/CS412-assignment/blob/main/ConfusionMatrixkNN.png)
 
 Figure 5: Confusion matrix generated for the k-NN model’s (with k=1) predictions on the test set. 
+
+<br>
 
 5 random samples of misclassified handwritten digits were generated, and are shown in figure 6 below. It can be seen that 2 of these predictions were 9 whereas the true label was 4 - which was the case for most of the misclassified cases. For the example with the true label being 5 and the prediction being 6, and the example with the true label being 8 and the prediction being 7, shows that the model has a difficult time when the difference between the digits is only a few pixels - just a few pixels being filled at the bottom left would’ve turned the 5 into a 6, and the erasure of a few pixels from the top left of the 8 would make it look like a 7.
 
