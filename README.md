@@ -97,5 +97,6 @@ Following this, a confusion matrix was generated for the final decision tree cla
 
 Finally, a ROC curve was generated for each digit in the test set in the decision tree classifier, and the AUC score was calculated for each digit (Figure 7). The AUC is the area under the curve, and it represents how well the model can differentiate between the different classes, and a number closer to 1 means the decision tree classifier is able to differentiate between the digit from the other digits well. It can be seen in figure 7 that the classifier performs well on predicting the true labels of the test data, as the AUC scores are above 0.90 for all of the digits. It has the most difficult time differentiating 8 from the other digits (AUC = 0.91), which is also evident from the fact that it misclassified 8 as 9 very frequently (as mentioned earlier). On the other hand, this classifier is able to tell the difference between 1 and other digits the best (with AUC = 0.99). 
 
+![](https://github.com/zeniamazhar/CS412-assignment/blob/main/ROCDC.png)
 
 Figure 7: ROC curve for each digit in the test set for the predictions made by the decision tree classifier with min_samples_split = 5 and max_depth = 10.
